@@ -12,16 +12,16 @@ exports.handler = function( event, context, callback){
     alexa.resources = languageStrings;
     alexa.registerHandlers( 
         newSessionHandlers,
-        quantifyOptionHandlers
+        quantifyOptionHandlers,
+        confirmOptionHandlers
         );
     alexa.execute();
 };
 
 var states = {
     QUANTIFY_OPTIONS: '_QUANTIFY_OPTIONS',
-    CONFIRM_TWO_OPTIONS: '_CONFIRM_TWO_OPTIONS',
-    CONFIRM_FOUR_OPTIONS: '_CONFIRM_FOUR_OPTIONS',
-    CONFIRM_OPTIONS : '_CONFIRM_OPTIONS'
+    CONFIRM_OPTIONS : '_CONFIRM_OPTIONS',
+    QUESTION_POLAR : '_QUESTION_POLAR'
 };
 
 var newSessionHandlers = {
@@ -44,14 +44,14 @@ var quantifyOptionHandlers = Alexa.CreateStateHandler( states.QUANTIFY_OPTIONS, 
         if ( number_of_options == 1){
             this.emit( ':ask', this.t( 'QUANTITY_ONE') );
         } else if ( number_of_options == 2){
+            this.handler.state = states.CONFIRM_OPTIONS;
             this.emit( ':ask', this.t( 'QUANTITY_TWO') );
-            this.handler.state = states.CONFIRM_TWO_OPTIONS;
         } else if ( number_of_options > 4){
+            this.handler.state = states.CONFIRM_OPTIONS;            
             this.emit( ':ask', this.t( 'QUANTITY_TOO_MANY') );
-            this.handler.state = states.CONFIRM_FOUR_OPTIONS;            
         } else {
-            this.emit( ':ask', number_of_options + this.t( 'QUANTITY_GOOD') );
             this.handler.state = states.CONFIRM_OPTIONS;                        
+            this.emit( ':ask', number_of_options + this.t( 'QUANTITY_GOOD') );
         }
     },
     'Unhandled': function() {
@@ -60,6 +60,33 @@ var quantifyOptionHandlers = Alexa.CreateStateHandler( states.QUANTIFY_OPTIONS, 
     }       
 });
 
+var confirmOptionHandlers = Alexa.CreateStateHandler( states.CONFIRM_OPTIONS, {
+    'AMAZON.YesIntent': function () {
+        console.log("confirmOptionHandlers with AMAZON.YesIntent invoked...");
+        this.handler.state = states.QUESTION_POLAR;;
+        this.emit( ':ask', this.t( 'EXPERIENCE') );
+    },
+    'QuantityIntent': function () {
+        console.log( "confirmOptionHandlers with QuantityIntent invoked...");
+        var number_of_options = get_number_from_quantity_slot( this.event.request.intent.slots.quantity.value);
+        if ( number_of_options == 1){
+            this.emit( ':ask', this.t( 'QUANTITY_ONE') );
+        } else if ( number_of_options == 2){
+            this.handler.state = states.CONFIRM_OPTIONS;
+            this.emit( ':ask', this.t( 'QUANTITY_TWO') );
+        } else if ( number_of_options > 4){
+            this.handler.state = states.CONFIRM_OPTIONS;            
+            this.emit( ':ask', this.t( 'QUANTITY_TOO_MANY') );
+        } else {
+            this.handler.state = states.CONFIRM_OPTIONS;                        
+            this.emit( ':ask', number_of_options + this.t( 'QUANTITY_GOOD') );
+        }
+    },
+    'Unhandled': function() {
+        console.log( "quantifyOptionHandlers with Unhandled Request invoked...");        
+        this.emit( ':ask', this.t( 'QUANTITY_REPEAT_2') );
+    }       
+});
 
 var languageStrings = {
     'en-US': {
@@ -79,7 +106,9 @@ var languageStrings = {
             'QUANTITY_TOO_MANY' : "Sorry, but these are too many options, if you want to \
                                give a fair consideration for each of them. Can you narrow down your \
                                range of options to the four most plausible ones?",
-            'QUANTITY_REPEAT' : "How many options did you say you have?"                               
+            'QUANTITY_REPEAT' : "How many options did you say you have?",
+            'QUANTITY_REPEAT_2' : "In this case, how many relevant options do you have?",
+            'EXPERIENCE' : "Do you have experience in making decisions like this one?"                           
         }
     },
     'de-DE': {
@@ -98,8 +127,9 @@ var languageStrings = {
                                Abwägung vornehmen willst. Kannst Du Deine Optionen auf die vier plausibelsten \
                                eingrenzen?",     
             'QUANTITY_REPEAT' : "Kannst Du bitte nochmal wiederholen, zwischen wie vielen Optionen Du \
-                               Dich entscheiden musst?"                               
-
+                               Dich entscheiden musst?"     
+            'QUANTITY_REPEAT_2' : "Zwischen wie vielen Optionen musst Du Dich in diesem Fall entscheiden?",
+            'EXPERIENCE'    : "Hast Du Erfahrung darin, Entscheidungen wie diese zu treffen?"
         }
     }    
 };
