@@ -18,11 +18,21 @@ exports.handler = function( event, context, callback){
     alexa.execute();
 };
 
+//==================================================================================================
+// STATES
+//==================================================================================================
+
 var states = {
     QUANTIFY_OPTIONS: '_QUANTIFY_OPTIONS',
     CONFIRM_OPTIONS : '_CONFIRM_OPTIONS',
-    QUESTION_POLAR : '_QUESTION_POLAR'
+    QUESTION_POLAR : '_QUESTION_POLAR',
+    QUESTION_CHOICE : '_QUESTION_CHOICE',
+    QUESTION_RELEVANCE : '_QUESTION_RELEVANCE' 
 };
+
+//==================================================================================================
+// HANDLERS
+//==================================================================================================
 
 var newSessionHandlers = {
     'LaunchRequest': function () {
@@ -61,10 +71,11 @@ var quantifyOptionHandlers = Alexa.CreateStateHandler( states.QUANTIFY_OPTIONS, 
 });
 
 var confirmOptionHandlers = Alexa.CreateStateHandler( states.CONFIRM_OPTIONS, {
-    'AMAZON.YesIntent': function () {
+    'YesIntent': function () {
         console.log("confirmOptionHandlers with AMAZON.YesIntent invoked...");
-        this.handler.state = states.QUESTION_POLAR;;
-        this.emit( ':ask', this.t( 'EXPERIENCE') );
+        this.attributes.node_current = 'experience';
+        this.handler.state = question_mapping[ this.attributes.node_current].mode;
+        this.emit( ':ask', this.t( question_mapping[ this.attributes.node_current].question) );
     },
     'QuantityIntent': function () {
         console.log( "confirmOptionHandlers with QuantityIntent invoked...");
@@ -88,6 +99,27 @@ var confirmOptionHandlers = Alexa.CreateStateHandler( states.CONFIRM_OPTIONS, {
     }       
 });
 
+//==================================================================================================
+// QUESTION MAPPING
+//==================================================================================================
+
+var question_mapping = {
+    'experience' : {
+        'mode' : states.QUESTION_POLAR,
+        'question' : 'EXPERIENCE',
+        'next' : 'feeling'
+    },
+    'feeling' : {
+        'mode' : states.QUESTION_CHOICE,
+        'question' : 'FEELING',
+        'next' : 'relieve'        
+    }
+}
+
+//==================================================================================================
+// RESSOURCES
+//==================================================================================================
+
 var languageStrings = {
     'en-US': {
         'translation': {
@@ -108,7 +140,7 @@ var languageStrings = {
                                range of options to the four most plausible ones?",
             'QUANTITY_REPEAT' : "How many options did you say you have?",
             'QUANTITY_REPEAT_2' : "In this case, how many relevant options do you have?",
-            'EXPERIENCE' : "Do you have experience in making decisions like this one?"                           
+            'EXPERIENCE'    : "Do you have experience in making decisions like this one?"                           
         }
     },
     'de-DE': {
@@ -127,13 +159,16 @@ var languageStrings = {
                                Abwägung vornehmen willst. Kannst Du Deine Optionen auf die vier plausibelsten \
                                eingrenzen?",     
             'QUANTITY_REPEAT' : "Kannst Du bitte nochmal wiederholen, zwischen wie vielen Optionen Du \
-                               Dich entscheiden musst?"     
+                               Dich entscheiden musst?",     
             'QUANTITY_REPEAT_2' : "Zwischen wie vielen Optionen musst Du Dich in diesem Fall entscheiden?",
             'EXPERIENCE'    : "Hast Du Erfahrung darin, Entscheidungen wie diese zu treffen?"
         }
     }    
 };
 
+//==================================================================================================
+// HELPERS
+//==================================================================================================
 
 function get_number_from_quantity_slot( key){
     var number_dict = {
