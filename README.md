@@ -40,7 +40,26 @@ Most notably, I will add more questions for the middle part, and add handlers fo
 
 ## Installation and Testing
 
+The major part of how this Skill is set up is exactly the same as for [Alexa's](https://github.com/alexa) demo Skills, so I will reference you to their [excellent installation guide](https://github.com/alexa/skill-sample-nodejs-fact) and just mention where the process is different for setting up Decision Coach.
 
+### Setting up the Skill's VUI in the Amazon Developer Portal 
+
+This step largely corresponds to what is described [here](https://github.com/alexa/skill-sample-nodejs-fact/blob/master/step-by-step/1-voice-user-interface.md), with the following exceptions:
+- In point 8, instead of defining the intents, slots and slot types by yourself, paste the code from [this repository's intent scheme](https://github.com/botmaker-florian/decision-coach/blob/master/speechAssets/IntentSchema_en_US.json) into the Code Editor, using the language of your choice (English or German)
+
+### Setting up your Skill's Lambda function
+
+Again, follow [this instruction](https://github.com/alexa/skill-sample-nodejs-fact/blob/master/step-by-step/2-lambda-function.md), with the following exceptions:
+- In point 7, choose "Node.js 6.10" as your runtime environment
+- In point 8, paste the content of [this repository's Skill source code](https://github.com/botmaker-florian/decision-coach/blob/master/src/index.js) into the code box and click 'Save'
+
+### Connecting the Skill's VUI and Lambda function
+
+Like above, simply follow the steps described [here](https://github.com/alexa/skill-sample-nodejs-fact/blob/master/step-by-step/3-connect-vui-to-code.md).
+
+### Testing 
+
+You can test your new Skill either with the Service Sinmulator in the Developer Portal as described [in point 4 of this guide](https://github.com/alexa/skill-sample-nodejs-fact/blob/master/step-by-step/4-testing.md), or by setting up a unit test suite in [Postman](https://www.getpostman.com/) [as described here](https://github.com/botmaker-florian/skill-sample-nodejs-decision-tree/blob/master/unit-testing.md).
 
 ## Contribution
 
@@ -51,7 +70,9 @@ Please check [CONTRIBUTING.md](https://github.com/botmaker-florian/decision-coac
 
 ## License
 
-Coachybot is published under the [MIT license](https://github.com/botmaker-florian/decision-coach/blob/master/LICENSE.md).
+To keep the bar for contribution and evolution of Decision Coach as low as possible, it is published under the [MIT license](https://github.com/botmaker-florian/decision-coach/blob/master/LICENSE.md).
+
+However, please do not submit your own branch of Decision Coach for publication in the Amazon Skill Store unless you have developed it into something conceptually different from the master version. :)
 
 ## Contact
 
