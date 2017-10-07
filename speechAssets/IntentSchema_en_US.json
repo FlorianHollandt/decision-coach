@@ -2,72 +2,96 @@
   "intents": [
     {
       "name": "AMAZON.CancelIntent",
-      "samples": []
+      "samples": [
+        "Cancel"
+      ]
     },
     {
       "name": "AMAZON.HelpIntent",
-      "samples": []
+      "samples": [
+        "Help"
+      ]
     },
     {
       "name": "AMAZON.StopIntent",
-      "samples": []
+      "samples": [
+        "stop"
+      ]
     },
     {
       "name": "ChoiceIntent",
       "samples": [
-        "Option {general_number}",
-        "The {general_number} option",
-        "{general_number}",
-        "The {general_number}",
-        "Option number {general_number}",
-        "Number {general_number}",
-        "{general_number} option",
-        "{general_number} one"
+        "The {choice} option",
+        "The {choice} possibility",
+        "Option number {choice}",
+        "The {choice}",
+        "Option {choice}"
       ],
       "slots": [
         {
-          "name": "general_number",
+          "name": "choice",
           "type": "choice_type",
           "samples": []
         }
       ]
     },
     {
+      "name": "NoIntent",
+      "samples": [
+        "no",
+        "absolutely not",
+        "no way",
+        "definitely not",
+        "never",
+        "certainly not",
+        "probably not",
+        "not quite",
+        "i don't think so",
+        "i wouldn't say so",
+        "wrong",
+        "false",
+        "negative"
+      ],
+      "slots": []
+    },
+    {
       "name": "QuantityIntent",
       "samples": [
-        "there are {cardinal_number} options",
-        "{cardinal_number} options",
-        "{cardinal_number}",
-        "i have {cardinal_number} options"
+        "There are {quantity} options",
+        "There are {quantity} possibilities",
+        "i have {quantity} options",
+        " I have {quantity} possibilities",
+        "between {quantity} options",
+        "between {quantity}",
+        "there are {quantity}"
       ],
       "slots": [
         {
-          "name": "cardinal_number",
-          "type": "number_type",
+          "name": "quantity",
+          "type": "quantity_type",
           "samples": []
         }
       ]
     },
     {
-      "name": "RelevanceIntent",
+      "name": "YesIntent",
       "samples": [
-        "This aspect {relevance} to me",
-        "This aspect {relevance}",
-        "This {relevance}",
-        "That {relevance}",
-        "{relevance} to me",
-        "To me {relevance}",
-        "For me {relevance}",
-        "{relevance} for me",
-        "{relevance}"
+        "Yes",
+        "sure",
+        "certainly",
+        "probably",
+        "right",
+        "totally",
+        "absolutely",
+        "definitely",
+        "of course",
+        "aye",
+        "i think so",
+        "i hope so",
+        "true",
+        "positive"
       ],
-      "slots": [
-        {
-          "name": "relevance",
-          "type": "relevance_type",
-          "samples": []
-        }
-      ]
+      "slots": []
     }
   ],
   "types": [
@@ -80,7 +104,7 @@
             "value": "one",
             "synonyms": [
               "first",
-              "a"
+              "A"
             ]
           }
         },
@@ -90,7 +114,8 @@
             "value": "two",
             "synonyms": [
               "second",
-              "b"
+              "B",
+              "other"
             ]
           }
         },
@@ -100,7 +125,7 @@
             "value": "three",
             "synonyms": [
               "third",
-              "c"
+              "C"
             ]
           }
         },
@@ -110,37 +135,16 @@
             "value": "four",
             "synonyms": [
               "fourth",
-              "d"
+              "D"
             ]
           }
         },
         {
-          "id": "05",
+          "id": "00",
           "name": {
-            "value": "five",
+            "value": "none",
             "synonyms": [
-              "fifth",
-              "e"
-            ]
-          }
-        },
-        {
-          "id": "06",
-          "name": {
-            "value": "six",
-            "synonyms": [
-              "sixth",
-              "f"
-            ]
-          }
-        },
-        {
-          "id": "none",
-          "name": {
-            "value": "no",
-            "synonyms": [
-              "none",
-              "any",
+              "no",
               "neither"
             ]
           }
@@ -148,13 +152,16 @@
       ]
     },
     {
-      "name": "number_type",
+      "name": "quantity_type",
       "values": [
         {
           "id": "01",
           "name": {
             "value": "one",
-            "synonyms": []
+            "synonyms": [
+              "a single",
+              "only one"
+            ]
           }
         },
         {
@@ -184,244 +191,8 @@
             "value": "five",
             "synonyms": []
           }
-        },
-        {
-          "id": "06",
-          "name": {
-            "value": "six",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "07",
-          "name": {
-            "value": "seven",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "08",
-          "name": {
-            "value": "eight",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "09",
-          "name": {
-            "value": "nine",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "10",
-          "name": {
-            "value": "ten",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "11",
-          "name": {
-            "value": "eleven",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "12",
-          "name": {
-            "value": "twelve",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "13",
-          "name": {
-            "value": "thirteen",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "14",
-          "name": {
-            "value": "fourteen",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "15",
-          "name": {
-            "value": "fifteen",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "16",
-          "name": {
-            "value": "sixteen",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "17",
-          "name": {
-            "value": "seventeen",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "18",
-          "name": {
-            "value": "eighteen",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "19",
-          "name": {
-            "value": "nineteen",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "20",
-          "name": {
-            "value": "twenty",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "undefined",
-          "name": {
-            "value": "several",
-            "synonyms": [
-              "several",
-              "different",
-              "many",
-              "some",
-              "a lot of",
-              "plenty of"
-            ]
-          }
-        },
-        {
-          "id": "none",
-          "name": {
-            "value": "no",
-            "synonyms": []
-          }
-        }
-      ]
-    },
-    {
-      "name": "relevance_type",
-      "values": [
-        {
-          "id": "high",
-          "name": {
-            "value": "is important",
-            "synonyms": [
-              "is very important",
-              "matters very much",
-              "matters a lot",
-              "is crucial",
-              "means a lot",
-              "means very much",
-              "is essential",
-              "mean everything",
-              "is highly important",
-              "is quite important"
-            ]
-          }
-        },
-        {
-          "id": "moderate",
-          "name": {
-            "value": "is moderately important",
-            "synonyms": [
-              "is somewhat important",
-              "is a bit important",
-              "is not so important",
-              "matters a bit",
-              "matters somewhat"
-            ]
-          }
-        },
-        {
-          "id": null,
-          "name": {
-            "value": "is not important",
-            "synonyms": [
-              "does not matter",
-              "doesn't matter",
-              "is irrelevant",
-              "is not relevant",
-              "is not important"
-            ]
-          }
         }
       ]
     }
-  ],
-  "prompts": [
-    {
-      "id": "Elicit.Intent-ChoiceIntent.IntentSlot-general_number",
-      "promptVersion": "1.0",
-      "definitionVersion": "1.0",
-      "variations": [
-        {
-          "type": "PlainText",
-          "value": "Which option sounds best in this regard?"
-        }
-      ]
-    },
-    {
-      "id": "Elicit.Intent-QuantityIntent.IntentSlot-cardinal_number",
-      "promptVersion": "1.0",
-      "definitionVersion": "1.0",
-      "variations": [
-        {
-          "type": "PlainText",
-          "value": "How many options do you have in this decision?"
-        }
-      ]
-    }
-  ],
-  "dialog": {
-    "version": "1.0",
-    "intents": [
-      {
-        "name": "ChoiceIntent",
-        "confirmationRequired": false,
-        "prompts": {},
-        "slots": [
-          {
-            "name": "general_number",
-            "type": "choice_type",
-            "elicitationRequired": true,
-            "confirmationRequired": false,
-            "prompts": {
-              "elicit": "Elicit.Intent-ChoiceIntent.IntentSlot-general_number"
-            }
-          }
-        ]
-      },
-      {
-        "name": "QuantityIntent",
-        "confirmationRequired": false,
-        "prompts": {},
-        "slots": [
-          {
-            "name": "cardinal_number",
-            "type": "number_type",
-            "elicitationRequired": true,
-            "confirmationRequired": false,
-            "prompts": {
-              "elicit": "Elicit.Intent-QuantityIntent.IntentSlot-cardinal_number"
-            }
-          }
-        ]
-      }
-    ]
-  }
+  ]
 }

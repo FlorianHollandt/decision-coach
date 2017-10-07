@@ -15,59 +15,79 @@
     {
       "name": "ChoiceIntent",
       "samples": [
-        "Option {general_number}",
-        "The {general_number} option",
-        "{general_number}",
-        "The {general_number}",
-        "Option number {general_number}",
-        "Number {general_number}",
-        "{general_number} option",
-        "{general_number} one"
+        "Die {choice} Option",
+        "Die {choice} Möglichkeit",
+        "Die {choice}",
+        "Option {choice}",
+        "Möglichkeit {choice}"
       ],
       "slots": [
         {
-          "name": "general_number",
+          "name": "choice",
           "type": "choice_type",
           "samples": []
         }
       ]
     },
     {
+      "name": "NoIntent",
+      "samples": [
+        "nein",
+        "gar nicht",
+        "absolut nicht",
+        "niemals",
+        "keine chance",
+        "bisher nicht",
+        "noch nicht",
+        "wohl nicht",
+        "auf keinen fall",
+        "definitiv nicht",
+        "eher nicht",
+        "kommt nicht in frage"
+      ],
+      "slots": []
+    },
+    {
       "name": "QuantityIntent",
       "samples": [
-        "there are {cardinal_number} options",
-        "{cardinal_number} options",
-        "{cardinal_number}",
-        "i have {cardinal_number} options"
+        "Ich habe {quantity} Optionen",
+        "Ich habe {quantity} Möglichkeiten",
+        "Es gibt {quantity} Optionen",
+        "Es gibt {quantity} Möglichkeiten",
+        "Zwischen {quantity} Optionen",
+        "Zwischen {quantity} Möglichkeiten",
+        "Zwischen {quantity}",
+        "Es gibt {quantity}",
+        "Ich habe {quantity}"
       ],
       "slots": [
         {
-          "name": "cardinal_number",
-          "type": "number_type",
+          "name": "quantity",
+          "type": "quantity_type",
           "samples": []
         }
       ]
     },
     {
-      "name": "RelevanceIntent",
+      "name": "YesIntent",
       "samples": [
-        "This aspect {relevance} to me",
-        "This aspect {relevance}",
-        "This {relevance}",
-        "That {relevance}",
-        "{relevance} to me",
-        "To me {relevance}",
-        "For me {relevance}",
-        "{relevance} for me",
-        "{relevance}"
+        "ja",
+        "jawohl",
+        "klar",
+        "definitiv",
+        "absolut",
+        "vollkommen",
+        "richtig",
+        "posititiv",
+        "schon",
+        "jep",
+        "joa",
+        "wahrscheinlich",
+        "hoffentlich",
+        "sicher",
+        "höchstwahrscheinlich"
       ],
-      "slots": [
-        {
-          "name": "relevance",
-          "type": "relevance_type",
-          "samples": []
-        }
-      ]
+      "slots": []
     }
   ],
   "types": [
@@ -77,351 +97,89 @@
         {
           "id": "01",
           "name": {
-            "value": "one",
+            "value": "eins",
             "synonyms": [
-              "first",
-              "a"
+              "erste",
+              "A",
+              "eine"
             ]
           }
         },
         {
           "id": "02",
           "name": {
-            "value": "two",
+            "value": "zwei",
             "synonyms": [
-              "second",
-              "b"
+              "zweite",
+              "B",
+              "andere"
             ]
           }
         },
         {
           "id": "03",
           "name": {
-            "value": "three",
+            "value": "drei",
             "synonyms": [
-              "third",
-              "c"
+              "dritte",
+              "C"
             ]
           }
         },
         {
           "id": "04",
           "name": {
-            "value": "four",
+            "value": "vier",
             "synonyms": [
-              "fourth",
-              "d"
-            ]
-          }
-        },
-        {
-          "id": "05",
-          "name": {
-            "value": "five",
-            "synonyms": [
-              "fifth",
-              "e"
-            ]
-          }
-        },
-        {
-          "id": "06",
-          "name": {
-            "value": "six",
-            "synonyms": [
-              "sixth",
-              "f"
-            ]
-          }
-        },
-        {
-          "id": "none",
-          "name": {
-            "value": "no",
-            "synonyms": [
-              "none",
-              "any",
-              "neither"
+              "vierte",
+              "D"
             ]
           }
         }
       ]
     },
     {
-      "name": "number_type",
+      "name": "quantity_type",
       "values": [
         {
           "id": "01",
           "name": {
             "value": "one",
-            "synonyms": []
+            "synonyms": [
+              "nur eine",
+              "eine einzige",
+              "eine"
+            ]
           }
         },
         {
           "id": "02",
           "name": {
             "value": "two",
-            "synonyms": []
+            "synonyms": [
+              "zwei"
+            ]
           }
         },
         {
           "id": "03",
           "name": {
             "value": "three",
-            "synonyms": []
+            "synonyms": [
+              "drei"
+            ]
           }
         },
         {
           "id": "04",
           "name": {
             "value": "four",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "05",
-          "name": {
-            "value": "five",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "06",
-          "name": {
-            "value": "six",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "07",
-          "name": {
-            "value": "seven",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "08",
-          "name": {
-            "value": "eight",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "09",
-          "name": {
-            "value": "nine",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "10",
-          "name": {
-            "value": "ten",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "11",
-          "name": {
-            "value": "eleven",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "12",
-          "name": {
-            "value": "twelve",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "13",
-          "name": {
-            "value": "thirteen",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "14",
-          "name": {
-            "value": "fourteen",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "15",
-          "name": {
-            "value": "fifteen",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "16",
-          "name": {
-            "value": "sixteen",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "17",
-          "name": {
-            "value": "seventeen",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "18",
-          "name": {
-            "value": "eighteen",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "19",
-          "name": {
-            "value": "nineteen",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "20",
-          "name": {
-            "value": "twenty",
-            "synonyms": []
-          }
-        },
-        {
-          "id": "undefined",
-          "name": {
-            "value": "several",
             "synonyms": [
-              "several",
-              "different",
-              "many",
-              "some",
-              "a lot of",
-              "plenty of"
-            ]
-          }
-        },
-        {
-          "id": "none",
-          "name": {
-            "value": "no",
-            "synonyms": []
-          }
-        }
-      ]
-    },
-    {
-      "name": "relevance_type",
-      "values": [
-        {
-          "id": "high",
-          "name": {
-            "value": "is important",
-            "synonyms": [
-              "is very important",
-              "matters very much",
-              "matters a lot",
-              "is crucial",
-              "means a lot",
-              "means very much",
-              "is essential",
-              "mean everything",
-              "is highly important",
-              "is quite important"
-            ]
-          }
-        },
-        {
-          "id": "moderate",
-          "name": {
-            "value": "is moderately important",
-            "synonyms": [
-              "is somewhat important",
-              "is a bit important",
-              "is not so important",
-              "matters a bit",
-              "matters somewhat"
-            ]
-          }
-        },
-        {
-          "id": null,
-          "name": {
-            "value": "is not important",
-            "synonyms": [
-              "does not matter",
-              "doesn't matter",
-              "is irrelevant",
-              "is not relevant",
-              "is not important"
+              "vier"
             ]
           }
         }
       ]
     }
-  ],
-  "prompts": [
-    {
-      "id": "Elicit.Intent-ChoiceIntent.IntentSlot-general_number",
-      "promptVersion": "1.0",
-      "definitionVersion": "1.0",
-      "variations": [
-        {
-          "type": "PlainText",
-          "value": "Which option sounds best in this regard?"
-        }
-      ]
-    },
-    {
-      "id": "Elicit.Intent-QuantityIntent.IntentSlot-cardinal_number",
-      "promptVersion": "1.0",
-      "definitionVersion": "1.0",
-      "variations": [
-        {
-          "type": "PlainText",
-          "value": "How many options do you have in this decision?"
-        }
-      ]
-    }
-  ],
-  "dialog": {
-    "version": "1.0",
-    "intents": [
-      {
-        "name": "ChoiceIntent",
-        "confirmationRequired": false,
-        "prompts": {},
-        "slots": [
-          {
-            "name": "general_number",
-            "type": "choice_type",
-            "elicitationRequired": true,
-            "confirmationRequired": false,
-            "prompts": {
-              "elicit": "Elicit.Intent-ChoiceIntent.IntentSlot-general_number"
-            }
-          }
-        ]
-      },
-      {
-        "name": "QuantityIntent",
-        "confirmationRequired": false,
-        "prompts": {},
-        "slots": [
-          {
-            "name": "cardinal_number",
-            "type": "number_type",
-            "elicitationRequired": true,
-            "confirmationRequired": false,
-            "prompts": {
-              "elicit": "Elicit.Intent-QuantityIntent.IntentSlot-cardinal_number"
-            }
-          }
-        ]
-      }
-    ]
-  }
+  ]
 }
