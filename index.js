@@ -240,12 +240,12 @@ var choiceQuestionHandlers = Alexa.CreateStateHandler( states.QUESTION_CHOICE, {
                     function(a, b){ return result_table[a] > result_table[b] ? a : b }
                 ); // To be improved: Does not indicate draw situation! :(
                 this.handler.state = states.RESULT;
-                result_text = this.t( 'RESULT').replace(
+                var result_text = this.t( 'RESULT').replace(
                     "XYZ",
                     winning_option
                 )
                 this.emit( 
-                    ':ask', 
+                    ':tell', 
                     result_text 
                 ); 
             } else {
