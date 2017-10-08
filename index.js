@@ -339,14 +339,14 @@ var question_mapping = {
     'relieve'      : {
         'mode'     : states.QUESTION_CHOICE,
         'question' : 'RELIEVE',
-        'next'     : 'pride',
+        'next'     : 'regret',
         'type'     : 'value',
         'value'    : 1
     },
-    'pride'      : {
+    'regret'      : {
         'mode'     : states.QUESTION_CHOICE,
-        'question' : 'PRIDE',
-        'next'     : 'development',
+        'question' : 'REGRET',
+        'next'     : 'values',
         'type'     : 'value',
         'value'    : 1
     },
@@ -356,7 +356,14 @@ var question_mapping = {
         'next'     : 'longterm',
         'type'     : 'value',
         'value'    : 2
-    },,
+    },    
+    'values'      : {
+        'mode'     : states.QUESTION_CHOICE,
+        'question' : 'VALUES',
+        'next'     : 'longterm',
+        'type'     : 'value',
+        'value'    : 2
+    },
     'longterm'     : {
         'mode'     : states.QUESTION_CHOICE,
         'question' : 'LONGTERM',
@@ -398,6 +405,7 @@ var languageStrings = {
             'FEELING'       : "Which option feels most 'right' to you?",
             'RELIEVE'       : "Which option would you feel most relieved about?",
             'PRIDE'         : "Which option would make yo feel most proud about yourself?",
+            'REGRET'         : "Which option are you least likely to regret?",
             'VALUES'        : "Which option aligns best with your core values?",
             'LONGTERM'      : "Which option is best for you in the long run?",
             'RESULT'        : "Alright, here is your result: Option XYZ seems to be best for you."
@@ -430,6 +438,7 @@ var languageStrings = {
             'FEELING'       : "Welche Option fühlt sich für Dich am meisten 'richtig' an?",
             'RELIEVE'       : "Über welche Option wärst Du am meisten erleichtert?",
             'PRIDE'         : "Welcher Option würde Dich am meisten stolz machen?",
+            'REGRET'        : "Welche Option würdest voraussichtlich am wenigsten bereuen?",
             'VALUES'        : "Welche Option hat die größte Übereinstimmung mit Deinen Werten und Zielen?",
             'LONGTERM'      : "Welche Option ist langfristig für Dich am Besten?",
             'RESULT'        : "Alles klar, hier ist Dein Ergebnis: Ich würde sagen, Option XYZ " +
