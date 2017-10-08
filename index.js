@@ -2,13 +2,13 @@
 'use strict';
 const Alexa = require('alexa-sdk');
 
-//const APP_ID = 'amzn1.ask.skill.id';
+const APP_ID = process.env.APP_ID; // Pattern: 'amzn1.ask.skill.id'
 
 
 exports.handler = function( event, context, callback){
     console.log( "Export handler invoked...");
     var alexa = Alexa.handler( event, context);
-    //alexa.appId = APP_ID;
+    alexa.appId = APP_ID;
     alexa.resources = languageStrings;
     alexa.registerHandlers( 
         newSessionHandlers,

@@ -52,6 +52,7 @@ This step largely corresponds to what is described [here](https://github.com/ale
 Again, follow [this instruction](https://github.com/alexa/skill-sample-nodejs-fact/blob/master/step-by-step/2-lambda-function.md), with the following exceptions:
 - In point 7, choose "Node.js 6.10" as your runtime environment
 - In point 8, paste the content of [this repository's Skill source code](https://github.com/botmaker-florian/decision-coach/blob/master/src/index.js) into the code box and click 'Save'
+- I addition to the outlined points, find the area 'Environment variables' (directly under 'Function code') and add a new variable `APP_ID` with your Skill's ID from the 'Skill information' section of the Skill Developer Portal (the pattern is `amzn1.ask.skill.id`)
 
 ### Connecting the Skill's VUI and Lambda function
 
