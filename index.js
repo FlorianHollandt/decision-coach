@@ -339,6 +339,13 @@ var question_mapping = {
     'relieve'      : {
         'mode'     : states.QUESTION_CHOICE,
         'question' : 'RELIEVE',
+        'next'     : 'pride',
+        'type'     : 'value',
+        'value'    : 1
+    },
+    'pride'      : {
+        'mode'     : states.QUESTION_CHOICE,
+        'question' : 'PRIDE',
         'next'     : 'longterm',
         'type'     : 'value',
         'value'    : 1
@@ -348,7 +355,7 @@ var question_mapping = {
         'question' : 'LONGTERM',
         'next'     : 'result',
         'type'     : 'value',
-        'value'    : 1        
+        'value'    : 2        
     }    
 }
 
@@ -384,6 +391,7 @@ var languageStrings = {
             'EXPERIENCE'    : "Do you have experience in making decisions like this one?",
             'FEELING'       : "Which option feels most 'right' to you?",
             'RELIEVE'       : "Which option would you feel most relieved about?",
+            'PRIDE'         : "Which option would make yo feel most proud about yourself?",            
             'LONGTERM'      : "Which option is best for you in the long run?",
             'RESULT'        : "Alright, here is your result: Option XYZ seems to be best for you."
         }
@@ -414,6 +422,7 @@ var languageStrings = {
             'EXPERIENCE'    : "Hast Du Erfahrung darin, Entscheidungen wie diese zu treffen?",
             'FEELING'       : "Welche Option fühlt sich für Dich am meisten 'richtig' an?",
             'RELIEVE'       : "Über welche Option wärst Du am meisten erleichtert?",
+            'PRIDE'         : "Welcher Option würde Dich am meisten stolz machen?",
             'LONGTERM'      : "Welche Option ist langfristig für Dich am Besten?",
             'RESULT'        : "Alles klar, hier ist Dein Ergebnis: Ich würde sagen, Option XYZ " +
                               " scheint für Dich am Besten zu sein."
