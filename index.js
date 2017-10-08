@@ -346,10 +346,17 @@ var question_mapping = {
     'pride'      : {
         'mode'     : states.QUESTION_CHOICE,
         'question' : 'PRIDE',
-        'next'     : 'longterm',
+        'next'     : 'development',
         'type'     : 'value',
         'value'    : 1
     },
+    'values'      : {
+        'mode'     : states.QUESTION_CHOICE,
+        'question' : 'VALUES',
+        'next'     : 'longterm',
+        'type'     : 'value',
+        'value'    : 2
+    },,
     'longterm'     : {
         'mode'     : states.QUESTION_CHOICE,
         'question' : 'LONGTERM',
@@ -388,10 +395,10 @@ var languageStrings = {
                               " 'the third' or similar.",
             'REPEAT_CHOICE_TOO_HIGH' : "You have narrowed down your options to XYZ before. " +
                               " Please choose one of those, or start over again.",
-            'EXPERIENCE'    : "Do you have experience in making decisions like this one?",
             'FEELING'       : "Which option feels most 'right' to you?",
             'RELIEVE'       : "Which option would you feel most relieved about?",
-            'PRIDE'         : "Which option would make yo feel most proud about yourself?",            
+            'PRIDE'         : "Which option would make yo feel most proud about yourself?",
+            'VALUES'        : "Which option aligns best with your core values?",
             'LONGTERM'      : "Which option is best for you in the long run?",
             'RESULT'        : "Alright, here is your result: Option XYZ seems to be best for you."
         }
@@ -423,6 +430,7 @@ var languageStrings = {
             'FEELING'       : "Welche Option fühlt sich für Dich am meisten 'richtig' an?",
             'RELIEVE'       : "Über welche Option wärst Du am meisten erleichtert?",
             'PRIDE'         : "Welcher Option würde Dich am meisten stolz machen?",
+            'VALUES'        : "Welche Option hat die größte Übereinstimmung mit Deinen Werten und Zielen?",
             'LONGTERM'      : "Welche Option ist langfristig für Dich am Besten?",
             'RESULT'        : "Alles klar, hier ist Dein Ergebnis: Ich würde sagen, Option XYZ " +
                               " scheint für Dich am Besten zu sein."
