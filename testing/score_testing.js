@@ -18,6 +18,7 @@ var states = {
     RESULT           : '_RESULT'
 };
 
+
 var question_mapping = {
     'experience'   : {
         'mode'     : states.QUESTION_POLAR,
@@ -37,29 +38,44 @@ var question_mapping = {
     'relieve'      : {
         'mode'     : states.QUESTION_CHOICE,
         'question' : 'RELIEVE',
-        'next'     : 'longterm',
+        'next'     : 'regret',
         'type'     : 'value',
         'value'    : 1
     },
+    'regret'      : {
+        'mode'     : states.QUESTION_CHOICE,
+        'question' : 'REGRET',
+        'next'     : 'values',
+        'type'     : 'value',
+        'value'    : 1
+    },
+    'values'      : {
+        'mode'     : states.QUESTION_CHOICE,
+        'question' : 'VALUES',
+        'next'     : 'longterm',
+        'type'     : 'value',
+        'value'    : 2
+    },    
     'longterm'     : {
         'mode'     : states.QUESTION_CHOICE,
         'question' : 'LONGTERM',
         'next'     : 'result',
         'type'     : 'value',
-        'value'    : 1        
+        'value'    : 2        
     }    
-};
+}
 
 var event = {
     "attributes": {
       "node_next": "result",
-      "number_of_options": 2,
+      "number_of_options": 3,
       "node_current": "longterm",
+      "regret": 1,
       "relieve": 2,
+      "values": 2,
       "STATE": "_QUESTION_CHOICE",
       "feeling": 1,
-      "experience": 1,
-      "longterm" : 1
+      "experience": 1
     }
 };
 

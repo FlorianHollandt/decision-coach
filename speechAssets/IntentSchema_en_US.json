@@ -25,7 +25,9 @@
         "The {choice} possibility",
         "Option number {choice}",
         "The {choice}",
-        "Option {choice}"
+        "Option {choice}",
+        "{choice} option",
+        "{choice}"
       ],
       "slots": [
         {
@@ -63,7 +65,10 @@
         " I have {quantity} possibilities",
         "between {quantity} options",
         "between {quantity}",
-        "there are {quantity}"
+        "there are {quantity}",
+        "{quantity} options",
+        "{quantity} possibilities",
+        "{quantity}"
       ],
       "slots": [
         {

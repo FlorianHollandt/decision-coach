@@ -19,7 +19,8 @@
         "Die {choice} Möglichkeit",
         "Die {choice}",
         "Option {choice}",
-        "Möglichkeit {choice}"
+        "Möglichkeit {choice}",
+        "{choice}"
       ],
       "slots": [
         {
@@ -58,7 +59,11 @@
         "Zwischen {quantity} Möglichkeiten",
         "Zwischen {quantity}",
         "Es gibt {quantity}",
-        "Ich habe {quantity}"
+        "Ich habe {quantity}",
+        "{quantity}",
+        "Dann sind es {quantity}",
+        "Dann sind es {quantity} Optionen",
+        "Dann sind es {quantity} Möglichkeiten"
       ],
       "slots": [
         {

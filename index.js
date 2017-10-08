@@ -357,13 +357,6 @@ var question_mapping = {
         'type'     : 'value',
         'value'    : 2
     },    
-    'values'      : {
-        'mode'     : states.QUESTION_CHOICE,
-        'question' : 'VALUES',
-        'next'     : 'longterm',
-        'type'     : 'value',
-        'value'    : 2
-    },
     'longterm'     : {
         'mode'     : states.QUESTION_CHOICE,
         'question' : 'LONGTERM',
@@ -402,6 +395,7 @@ var languageStrings = {
                               " 'the third' or similar.",
             'REPEAT_CHOICE_TOO_HIGH' : "You have narrowed down your options to XYZ before. " +
                               " Please choose one of those, or start over again.",
+            'EXPERIENCE'    : "Do you have experience in making decisions like this one?",                              
             'FEELING'       : "Which option feels most 'right' to you?",
             'RELIEVE'       : "Which option would you feel most relieved about?",
             'PRIDE'         : "Which option would make yo feel most proud about yourself?",
